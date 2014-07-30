@@ -1,8 +1,6 @@
 openfoam_2.3.0 Docker image
 ===========================
 
-## Description
-
 A Docker image bundling [OpenFOAM 2.3.0](http://openfoam.org/version2.3.0/) and useful utilities.
 
 Image includes:
