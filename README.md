@@ -1,4 +1,4 @@
-dockerfiles
+Dockerfiles
 ===========
 
-Dockerfiles for various builds
+Dockerfiles for various public builds.
