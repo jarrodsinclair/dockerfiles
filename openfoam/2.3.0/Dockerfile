@@ -2,7 +2,7 @@ FROM ubuntu:13.10
 
 RUN apt-get -q update && \
     apt-get -q -y install build-essential software-properties-common adduser && \
-    apt-get -q -y install vim zip unzip curl imagemagick ffmpeg && \
+    apt-get -q -y install vim zip unzip curl wget imagemagick ffmpeg && \
     apt-get -q -y install python python-dev python-virtualenv python-pip && \
     apt-get -q -y install libfreetype6-dev libpng12-dev libatlas-base-dev gfortran && \
     pip -q install numpy matplotlib scipy && \
