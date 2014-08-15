@@ -12,8 +12,8 @@ Image includes:
 - pip (pip2 and pip3)
 - NumPy, SciPy, Matplotlib, Pillow (latest versions at build time via pip2/pip3)
 - ImageMagick, FFmpeg
-- Wget, cURL
+- Wget, cURL, git
 - Zip, UnZip
 - Vim
 
-The OpenFOAM environment is configured for the "ubuntu" user, and system operations have been enabled in /opt/openfoam230/etc/controlDict. Note the virtualenv is no longer installed in this image.
+The OpenFOAM environment is configured for the "ubuntu" user, and system operations have been enabled in /opt/openfoam230/etc/controlDict. Note that virtualenv is no longer installed in this image.
