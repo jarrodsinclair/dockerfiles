@@ -1,0 +1,35 @@
+FROM ubuntu:13.10
+MAINTAINER Jarrod Sinclair <jarrod.sinclair@gmail.com>
+
+RUN apt-get -q update && \
+    apt-get -q -y upgrade && \
+    apt-get -q -y install build-essential software-properties-common && \
+    apt-get -q -y install curl wget git && \
+
+    apt-get -q -y install python python-dev && \
+    curl -s https://bootstrap.pypa.io/get-pip.py | python2 && \
+
+    mkdir -p /root/build && \
+
+    cd /root/build && \
+    git clone git://paraview.org/ParaView.git pv-git && cd pv-git && \
+    git checkout v4.1.0 && git submodule init && git submodule update && \
+
+    cd /root/build && \
+    mkdir pv-bin && cd pv-bin && \
+    apt-get -q -y install cmake libosmesa6-dev libglu1-mesa-dev && \
+    cmake \
+        -D BUILD_TESTING:BOOL=OFF \
+        -D PARAVIEW_BUILD_QT_GUI:BOOL=OFF \
+        -D PARAVIEW_ENABLE_PYTHON:BOOL=ON \
+        -D OPENGL_INCLUDE_DIR=/usr/include \
+        -D OPENGL_gl_LIBRARY="" \
+        -D OPENGL_glu_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLU.so \
+        -D VTK_OPENGL_HAS_OSMESA:BOOL=ON \
+        -D OSMESA_INCLUDE_DIR=/usr/include \
+        -D OSMESA_LIBRARY=/usr/lib/x86_64-linux-gnu/libOSMesa.so \
+        -D VTK_USE_X:BOOL=OFF \
+        ../pv-git && \
+    make -j16 && make install && \
+
+    cd / && rm -rf /root/build
