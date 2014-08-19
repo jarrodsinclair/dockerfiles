@@ -5,14 +5,14 @@ RUN apt-get -q update && \
     apt-get -q -y upgrade && \
     apt-get -q -y install build-essential software-properties-common && \
     apt-get -q -y install curl wget git python python-dev && \
-    curl -s https://bootstrap.pypa.io/get-pip.py | python2
+    curl -s https://bootstrap.pypa.io/get-pip.py | python2 && \
 
-RUN mkdir -p /root/build && cd /root/build && \
+    mkdir -p /root/build && cd /root/build && \
     apt-get -q -y install cmake libosmesa6-dev libglu1-mesa-dev && \
     git clone git://paraview.org/ParaView.git pv-git && cd pv-git && \
-    git checkout v4.1.0 && git submodule init && git submodule update
+    git checkout v4.1.0 && git submodule init && git submodule update && \
 
-RUN mkdir -p /root/build/pv-bin && cd /root/build/pv-bin && \
+    mkdir -p /root/build/pv-bin && cd /root/build/pv-bin && \
     cmake \
         -D CMAKE_BUILD_TYPE=Release \
         -D BUILD_TESTING:BOOL=OFF \
@@ -26,11 +26,6 @@ RUN mkdir -p /root/build/pv-bin && cd /root/build/pv-bin && \
         -D VTK_OPENGL_HAS_OSMESA:BOOL=ON \
         -D OSMESA_INCLUDE_DIR=/usr/include \
         -D OSMESA_LIBRARY=/usr/lib/x86_64-linux-gnu/libOSMesa.so \
-        ../pv-git
-
-RUN cd /root/build/pv-bin && \
-    make -j4
-
-RUN cd /root/build/pv-bin && \
-    make install && \
+        ../pv-git && \
+    make -j4 && make install && \
     cd / && rm -rf /root/build
