@@ -23,62 +23,6 @@ USER ubuntu
 
 WORKDIR /home/ubuntu
 
-#
-# waiting for the Dockerhub build system to upgrade to Docker 1.4 for multiple
-# variables to be set in one ENV command (more efficient by using only 1 layer)
-#
-#ENV USER="ubuntu" \
-#    LOGNAME="ubuntu" \
-#    HOME="/home/ubuntu" \
-#    PWD="/home/ubuntu" \
-#    SHELL="/bin/bash" \
-#    PATH="/opt/ThirdParty-2.3.1/platforms/linux64Gcc/gperftools-svn/bin:/home/ubuntu/OpenFOAM/ubuntu-2.3.1/platforms/linux64GccDPOpt/bin:/opt/site/2.3.1/platforms/linux64GccDPOpt/bin:/opt/openfoam231/platforms/linux64GccDPOpt/bin:/opt/openfoam231/bin:/opt/openfoam231/wmake:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin" \
-#    LD_LIBRARY_PATH="/opt/ThirdParty-2.3.1/platforms/linux64Gcc/gperftools-svn/lib:/opt/openfoam231/platforms/linux64GccDPOpt/lib/openmpi-system:/opt/ThirdParty-2.3.1/platforms/linux64GccDPOpt/lib/openmpi-system:/usr/lib/openmpi/lib:/home/ubuntu/OpenFOAM/ubuntu-2.3.1/platforms/linux64GccDPOpt/lib:/opt/site/2.3.1/platforms/linux64GccDPOpt/lib:/opt/openfoam231/platforms/linux64GccDPOpt/lib:/opt/ThirdParty-2.3.1/platforms/linux64GccDPOpt/lib:/opt/openfoam231/platforms/linux64GccDPOpt/lib/dummy" \
-#    BOOST_ARCH_PATH="/opt/ThirdParty-2.3.1/platforms/linux64Gcc/boost-system" \
-#    CGAL_ARCH_PATH="/opt/ThirdParty-2.3.1/platforms/linux64Gcc/CGAL-4.3" \
-#    FOAM_APP="/opt/openfoam231/applications" \
-#    FOAM_APPBIN="/opt/openfoam231/platforms/linux64GccDPOpt/bin" \
-#    FOAM_EXT_LIBBIN="/opt/ThirdParty-2.3.1/platforms/linux64GccDPOpt/lib" \
-#    FOAM_INST_DIR="/opt" \
-#    FOAM_JOB_DIR="/opt/jobControl" \
-#    FOAM_LIBBIN="/opt/openfoam231/platforms/linux64GccDPOpt/lib" \
-#    FOAM_MPI="openmpi-system" \
-#    FOAM_RUN="/home/ubuntu/OpenFOAM/ubuntu-2.3.1/run" \
-#    FOAM_SITE_APPBIN="/opt/site/2.3.1/platforms/linux64GccDPOpt/bin" \
-#    FOAM_SITE_LIBBIN="/opt/site/2.3.1/platforms/linux64GccDPOpt/lib" \
-#    FOAM_SOLVERS="/opt/openfoam231/applications/solvers" \
-#    FOAM_SRC="/opt/openfoam231/src" \
-#    FOAM_TUTORIALS="/opt/openfoam231/tutorials" \
-#    FOAM_USER_APPBIN="/home/ubuntu/OpenFOAM/ubuntu-2.3.1/platforms/linux64GccDPOpt/bin" \
-#    FOAM_USER_LIBBIN="/home/ubuntu/OpenFOAM/ubuntu-2.3.1/platforms/linux64GccDPOpt/lib" \
-#    FOAM_UTILITIES="/opt/openfoam231/applications/utilities" \
-#    MPI_ARCH_PATH="/usr/lib/openmpi" \
-#    MPI_BUFFER_SIZE="20000000" \
-#    WM_ARCH="linux64" \
-#    WM_ARCH_OPTION="64" \
-#    WM_CC="gcc" \
-#    WM_CFLAGS="-m64 -fPIC" \
-#    WM_COMPILER="Gcc" \
-#    WM_COMPILER_LIB_ARCH="64" \
-#    WM_COMPILE_OPTION="Opt" \
-#    WM_CXX="g++" \
-#    WM_CXXFLAGS="-m64 -fPIC" \
-#    WM_DIR="/opt/openfoam231/wmake" \
-#    WM_LDFLAGS="-m64" \
-#    WM_LINK_LANGUAGE="c++" \
-#    WM_MPLIB="SYSTEMOPENMPI" \
-#    WM_OPTIONS="linux64GccDPOpt" \
-#    WM_OSTYPE="POSIX" \
-#    WM_PRECISION_OPTION="DP" \
-#    WM_PROJECT="OpenFOAM" \
-#    WM_PROJECT_DIR="/opt/openfoam231" \
-#    WM_PROJECT_INST_DIR="/opt" \
-#    WM_PROJECT_USER_DIR="/home/ubuntu/OpenFOAM/ubuntu-2.3.1" \
-#    WM_PROJECT_VERSION="2.3.1" \
-#    WM_THIRD_PARTY_DIR="/opt/ThirdParty-2.3.1"
-#
-# use separate ENV commands in the meantime
-#
 ENV USER ubuntu
 ENV LOGNAME ubuntu
 ENV HOME /home/ubuntu
